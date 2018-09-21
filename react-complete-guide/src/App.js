@@ -15,18 +15,19 @@ class App extends Component {
   switchNameHandler = (e) => {
     this.setState({
     persons: [
-      {name: 'Chris', age: '32'},
+      {name: e.target.value, age: '32'},
       {name: e.target.value, age: '33'},
-      {name: 'Hannah', age: '31'},
+      {name: e.target.value, age: '31'},
     ]
     })
   }
 
   render() {
 
+    //INLINE STYLING:
     //js object so you have to use js representations. backgroundColor not background-color. use strings since it's a key: value pair.
     //note: inline styles are more restrictive. ex: a hover effect. you do get to localize things though.
-    
+
     const style={
       backgroundColor: 'white',
       font: 'inherit', //use surrounding font.
@@ -45,8 +46,9 @@ class App extends Component {
 
         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
 
-        <button style={style} //style receives the dynamic value. normal variable and not a class property.
+        <button style={style} //style receives the dynamic value. normal variable and not a class property so no this.style.
           onClick={this.switchNameHandler}>Switch name</button>
+
       </div>
     );
   }
